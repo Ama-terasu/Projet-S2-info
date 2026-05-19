@@ -1,6 +1,6 @@
 # 🌍 Market AI Tool - Analyseur de Marché Universel
 
-Market AI Tool est une application web interactive d'**aide à la décision financière** développée dans le cadre de la Licence 2 Informatique. Elle permet de diagnostiquer la santé d'un actif (Bourse ou Cryptomonnaie) en temps réel en combinant l'analyse technique, l'analyse de sentiment de l'actualité (NLP) et des règles de gestion du capital (_Money Management_).
+Market AI Tool est une application web interactive d'**aide à la décision financière**. Elle permet de diagnostiquer la santé d'un actif (Bourse ou Cryptomonnaie) en temps réel en combinant l'analyse technique, l'analyse de sentiment de l'actualité (NLP) et des règles de gestion du capital (_Money Management_).
 
 ## ✨ Fonctionnalités
 
@@ -14,8 +14,8 @@ Market AI Tool est une application web interactive d'**aide à la décision fina
 ### 1. Cloner le projet
 
 ```bash
-git clone [https://github.com/VOTRE_PSEUDO/Projet-L2-info.git](https://github.com/VOTRE_PSEUDO/Projet-L2-info.git)
-cd Projet-L2-info
+git clone [https://github.com/Ama-terasu/Projet-S2-info.git](https://github.com/Ama-terasu/Projet-S2-info.git)
+cd Projet-S2-info
 
 2. Installer les dépendances :
 pip install -r requirements.txt
