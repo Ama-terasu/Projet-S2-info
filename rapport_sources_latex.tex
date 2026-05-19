@@ -1,0 +1,86 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=20mm}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolor},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{4cm}
+    {\Huge \bfseries Rapport de Projet}\\[0.5cm]
+    {\Large Market AI Tool --- Analyseur de Marché Universel}\\[2cm]
+    {\large \bfseries Application d'Aide à la Décision Financière \& NLP}\\[1cm]
+    {\large Licence 2 Informatique}\\[3cm]
+    
+    \begin{center}
+        \textbf{🔗 LIEN DU DÉPÔT GITHUB PUBLIC (OBLIGATOIRE) :}\\
+        \url{https://github.com/VOTRE_PSEUDO/Projet-L2-info}
+    \end{center}
+    \vfill
+    {\large Mai 2026}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Présentation Générale du Projet}
+L'objectif de ce projet est de concevoir et de développer une application web interactive d'aide à la décision financière. Face à la complexité croissante des marchés modernes (Bourse et Cryptomonnaies) et au flux continu d'informations, cette plateforme centralise, traite et simplifie l'accès aux données clés. Elle croise trois disciplines fondamentales : l'analyse technique (étude des prix), l'analyse fondamentale (étude du sentiment textuel de l'actualité) et la gestion algorithmique des risques (le money management).
+
+Ce système ne doit en aucun cas être interprété comme un outil de prédiction spéculatif autonome. Il s'agit d'un outil de diagnostic factuel en temps réel s'appuyant sur les principes de la Business Intelligence appliquée aux marchés financiers.
+
+\section{Architecture Technique \& Fonctionnalités Clés}
+L'application est découpée en quatre modules majeurs s'exécutant de manière séquentielle et asynchrone lors du déclenchement de l'analyse :
+
+\subsection{Moteur de Visualisation Dynamique}
+S'appuyant sur les bibliothèques \texttt{yfinance} et \texttt{Plotly}, ce module génère un graphique interactif en bougies japonaises (Candlestick). L'utilisateur peut modifier l'échelle temporelle à sa guise (1 Jour, 1 Semaine, 1 Mois, 1 An, Max). L'algorithme adapte automatiquement l'intervalle d'échantillonnage des données sous-jacentes afin de préserver une fluidité optimale de lecture.
+
+\subsection{Analyseur de Sentiment Textuel par Intelligence Artificielle (NLP)}
+À l'aide de \texttt{feedparser}, le programme extrait en direct les cinq derniers titres de la presse mondiale relatifs à l'actif sélectionné via le flux RSS de Google News. Un modèle de traitement automatique du langage naturel (NLP) basé sur la librairie \texttt{TextBlob} (et son extension francophone) analyse chaque titre. Ce score de polarité est pondéré par un dictionnaire financier personnalisé ciblant les biais sémantiques sectoriels. Le système extrait un score consolidé normalisé entre -1.0 (Panique) et +1.0 (Euphorie).
+
+\subsection{Module de Diagnostic Avancé}
+Pour immuniser l'utilisateur contre les surréactions émotionnelles, l'application calcule en temps réel trois indicateurs quantitatifs complémentaires : la variation de période, le risque de volatilité (calculé via l'écart-type mathématique des rendements journaliers) et l'indicateur RSI (Relative Strength Index) basé sur les moyennes mobiles des gains et pertes sur une fenêtre de 14 périodes.
+
+\subsection{Module de Money Management}
+Ce module applique les principes fondamentaux de la gestion des risques de portefeuille. En fonction du capital total de l'investisseur et de son profil d'aversion au risque (Prudent, Équilibré, Agressif), le système calcule la taille de position idéale. Il affiche dynamiquement l'enveloppe budgétaire maximale allouable au trade ainsi que le nombre précis d'unités d'actifs à acquérir.
+
+\section{Résolution des Problématiques de Développement}
+Un défi technique majeur est survenu suite aux modifications récentes de la structure de retour de l'API de \texttt{yfinance}. Lors de requêtes sur la colonne 'Close', les données étaient parfois encapsulées dans des structures multi-indexées complexes de type Pandas Series imbriquées. Cela générait des exceptions fatales lors du calcul statistique de l'écart-type. La faille a été corrigée en concevant une routine de nettoyage agnostique combinant la méthode \texttt{.squeeze()} pour aplatir les structures de données, associée à une vérification algorithmique conditionnelle introspective.
+
+\section{Conclusion et Perspectives d'Évolution}
+L'application Market AI Tool répond pleinement aux exigences de robustesse, d'ergonomie et d'esprit critique. Pour les développements futurs, deux axes sont envisagés : la persistance des données via l'intégration d'une couche SQL pour historiser les analyses utilisateurs, et le remplacement du moteur NLP statistique par un interfaçage API avec un modèle de langage (LLM).
+
+\end{document}
