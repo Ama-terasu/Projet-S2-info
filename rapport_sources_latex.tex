@@ -81,6 +81,6 @@ Ce module applique les principes fondamentaux de la gestion des risques de porte
 Un défi technique majeur est survenu suite aux modifications récentes de la structure de retour de l'API de \texttt{yfinance}. Lors de requêtes sur la colonne 'Close', les données étaient parfois encapsulées dans des structures multi-indexées complexes de type Pandas Series imbriquées. Cela générait des exceptions fatales lors du calcul statistique de l'écart-type. La faille a été corrigée en concevant une routine de nettoyage agnostique combinant la méthode \texttt{.squeeze()} pour aplatir les structures de données, associée à une vérification algorithmique conditionnelle introspective.
 
 \section{Conclusion et Perspectives d'Évolution}
-L'application Market AI Tool répond pleinement aux exigences de robustesse, d'ergonomie et d'esprit critique. Pour les développements futurs, deux axes sont envisagés : la persistance des données via l'intégration d'une couche SQL pour historiser les analyses utilisateurs, et le remplacement du moteur NLP statistique par un interfaçage API avec un modèle de langage (LLM).
+L'application Diagnostique Bourse/Crypto répond pleinement aux exigences de robustesse, d'ergonomie et d'esprit critique. Pour les développements futurs, deux axes sont envisagés : la persistance des données via l'intégration d'une couche SQL pour historiser les analyses utilisateurs, et le remplacement du moteur NLP statistique par un interfaçage API avec un modèle de langage (LLM).
 
 \end{document}
